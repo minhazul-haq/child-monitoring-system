@@ -1,0 +1,37 @@
+<?php include "media/header_footer_general/header.phtml"; ?>
+		  
+	<table width="800" border="0" align="center" background="/media/images/androidInHand.jpg">
+  		<tr>
+    		<td height="94" colspan="3"></td>
+    	</tr>
+  		<tr>
+    		<td width="235" height="260">&nbsp;</td>
+    		<td width="391"><img src="/media/slide_images/1.jpg" alt="no image" border="1" align="center" id="iHolder"></td>
+    		<td>&nbsp;</td>
+  		</tr>
+  		<tr>
+    		<td height="22">&nbsp;</td>
+    		<td><div align="center" class="indexImageDescription" id="iMessage"></div></td>
+    		<td>&nbsp;</td>
+  		</tr>
+  		<tr>
+    		<td height="150" colspan="3">&nbsp;</td>
+  		</tr>
+  		<tr>
+    		<td height="125" colspan="3">
+    			<table width="230" border="0" align="right" class="indexLoginForm" background="/media/images/metal.jpg">
+        			<tr>
+          				<td align="center"> 
+							<?php 
+                                echo $this->form; 
+                                echo '<div class="indexErrorMessage">'.$this->message.'</div>'; 
+                            ?>
+                            <p align="center" class="indexForgotPassword">Forgot password? Click <a href="/index/forgot" class="indexForgotPasswordLink"> here </a></p>
+          				</td>
+        			</tr>
+      			</table>
+    		</td>
+  		</tr>
+	</table>
+
+<?php include "media/header_footer_general/footer.phtml"; ?>    

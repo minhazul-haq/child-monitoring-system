@@ -1,0 +1,164 @@
+<?php
+
+	require_once('simpletest/autorun.php');
+	require_once('simpletest/web_tester.php');
+	
+	class test_for_registration extends WebTestCase  
+	{
+		function testFullnameLessThanFiveChar()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Min',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testEmailFormatWrong()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythmgmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testEmailSame()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm.cse.buet@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testAddressLessThanTenChar()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Dhaka',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testMobileLessThanElevenChar()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testMobileIsNotaNumber()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => 'hello world',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testUsernameSame()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testUsernameLessThanFiveChar()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhy',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testPasswordLessThanFiveChar()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhyt',
+							  'repassword' => 'rhyt'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testPasswordAreNotSame()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm8'));
+			
+        	$this->assertNoText('An activation email has been sent to your email address.');
+        }
+		
+		function testAllOK()
+		{
+			$this->post('/register/register',
+                		array('fullname' => 'Minhazul Haq',
+							  'email' => 'rhythm89@gmail.com', 
+							  'address' => 'Road 4, House 3, Kallyanpur',
+							  'mobile' => '01716451394',
+							  'username' => 'rhythm89',
+							  'password' => 'rhythm89',
+							  'repassword' => 'rhythm89'));
+			
+        	$this->assertText('An activation email has been sent to your email address.');
+        }
+		
+	}
+	
+?>

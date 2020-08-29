@@ -1,0 +1,46 @@
+<?php
+
+	require_once('simpletest/autorun.php');
+	require_once('UserModel.php');
+	
+	class test_for_UserMOdel_isValidLogin extends UnitTestCase 
+	{
+		function testCorrectUsernameCorrectPassword()
+		{
+			$uModel = new UserModel();
+			$this->assertEqual(1,$uModel->isValidLogin('rhythm','rhythm'));
+		}
+		
+		function testWrongUsernameCorrectPassword()
+		{
+			$uModel = new UserModel();
+			$this->assertEqual(0,$uModel->isValidLogin('rhythm2','rhythm'));
+		}
+		
+		function testCorrectUsernameWrongPassword()
+		{
+			$uModel = new UserModel();
+			$this->assertEqual(0,$uModel->isValidLogin('rhythm','rhythm2'));
+		}
+		
+		function testWrongUsernameWrongPassword()
+		{
+			$uModel = new UserModel();
+			$this->assertEqual(0,$uModel->isValidLogin('rhythm','rhythm2'));
+		}
+		
+		function testUnactivatedUsernameCorrectPassword()
+		{
+			$uModel = new UserModel();
+			$this->assertEqual(-1,$uModel->isValidLogin('sourov','sourov'));
+		}
+		
+		function testInactivatedUsernameWrongPassword()
+		{
+			$uModel = new UserModel();
+			$this->assertEqual(0,$uModel->isValidLogin('sourov','sourov2'));
+		}		
+		
+	}
+	
+?>

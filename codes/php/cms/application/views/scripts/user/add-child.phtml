@@ -1,0 +1,41 @@
+<?php include "media/header_footer_user/header.phtml"; ?>
+
+	<tr>
+    	<td>
+	
+	<?php 
+		
+		if ($this->form)
+		{
+			?>
+            <table width="650" border="0" align="center" cellpadding="2" cellspacing="2">
+			  <tr>
+		 		<td class="addChildFormDescription"> <?php echo $this->form; ?> </td>
+			  </tr>
+			  <tr>
+			  	<td class="addChildErrorMessage" align="center"> <?php echo $this->message; ?> </td>
+			  </tr>	
+			</table>
+            <?php
+		}
+        else
+		{
+			header("Refresh: 5; URL=/user/home");
+			?>
+            <table border="0" align="center">
+              <tr>
+                <td align="center"><img src="/media/images/ok.png"></td>
+              </tr>
+              <tr>
+                <td class="addChildMessage" align="center"> <?php echo $this->message; ?> </td>
+              </tr>
+            </table>
+            <?php
+		}
+	?>
+    
+    	</td>
+    </tr>    
+
+<?php include "media/header_footer_user/footer.phtml"; ?>
+		    

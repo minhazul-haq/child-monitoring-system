@@ -1,0 +1,64 @@
+<?php
+
+	require_once('simpletest/autorun.php');
+	require_once('simpletest/web_tester.php');
+	require_once('UserModel.php');
+	
+	class test_for_child extends WebTestCase 
+	{
+		function testNoChildToSelect()
+		{
+			$this->post('/index/index',
+                		array('username' => 'rhythm',
+							  'password' => 'rhythm'));
+							  
+			$this->get('/user/home');
+        	$this->assertText('You have no child to select');	
+		}
+		
+		function testInvalidChildAdding()
+		{
+			$this->post('/index/index',
+                		array('username' => 'rhythm',
+							  'password' => 'rhythm'));
+			
+			$this->post('/user/add-child',
+                		array('childname' => 'Sam'));							  
+							  
+			$this->assertText('\'Sam\' is less than 4 characters long');	
+		}
+		
+		function testChildAdded()
+		{
+			$this->post('/index/index',
+                		array('username' => 'rhythm',
+							  'password' => 'rhythm'));
+			
+			$this->post('/user/add-child',
+                		array('childname' => 'SampleSon'));							  
+							  
+			$this->get('/user/home');
+			$this->assertText('You need to select a child first!');	
+		}
+		
+		function testSelectaChild()
+		{
+			$this->post('/index/index',
+                		array('username' => 'rhythm',
+							  'password' => 'rhythm'));
+			
+			$this->post('/user/home',
+                		array('childname' => 'SampleSon'));	
+										  
+			$this->assertNoText('You need to select a child first! ');	
+		}
+		
+		function testSameChildAdded()
+		{
+			$uModel = new UserModel();
+			$this->assertFalse($uModel->insertIntoChildren('rhythm','SampleSon'));	
+		}
+				
+	}
+	
+?>

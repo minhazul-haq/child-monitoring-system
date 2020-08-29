@@ -1,0 +1,34 @@
+<?php include "media/header_footer_general/header.phtml"; ?>
+
+	<?php 
+		
+		if ($this->form)
+		{
+			?>
+            <table width="550" border="0" align="center" cellpadding="2" cellspacing="2">
+			  <tr>
+		 		<td class="forgotFormDescription"> <?php echo $this->form; ?> </td>
+			  </tr>
+			  <tr>
+			  	<td class="forgotErrorMessage" align="center"> <?php echo $this->message; ?> </td>
+			  </tr>	
+			</table>
+            <?php
+		}
+        else
+		{
+			header("Refresh: 6; URL=/index/index");
+			?>
+            <table border="0" align="center">
+              <tr>
+                <td align="center"><img src="/media/images/email.png"></td>
+              </tr>
+              <tr>
+                <td class="forgotMessage" align="center"> <?php echo $this->message; ?> </td>
+              </tr>
+            </table>
+            <?php
+		}
+	?>	
+              
+<?php include "media/header_footer_general/footer.phtml"; ?>

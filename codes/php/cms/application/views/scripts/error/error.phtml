@@ -1,0 +1,28 @@
+<?php 
+
+	session_start();
+	
+	if (isset($_SESSION['user']))
+		include "media/header_footer_user/header.phtml"; 
+	else
+		include "media/header_footer_general/header.phtml"; 
+	
+?>
+
+    <table border="0" align="center">
+      <tr>
+        <td align="center"><img src="/media/images/error.png"></td>
+      </tr>
+      <tr>
+        <td class="errorDescription">Oops! An error occured</td>
+      </tr>
+    </table>
+
+<?php 
+
+	if (isset($_SESSION['user']))
+		include "media/header_footer_user/footer.phtml"; 
+	else
+		include "media/header_footer_general/footer.phtml"; 
+
+?>

@@ -1,0 +1,37 @@
+<?php include "media/header_footer_general/header.phtml"; ?>
+
+
+	<?php 
+		
+		if ($this->form)
+		{
+			?>
+            <table width="600" border="0" align="center" cellpadding="2" cellspacing="2">
+			  <tr>
+		 		<td class="resetFormDescription"> <?php echo $this->form; ?> </td>
+			  </tr>
+			  <tr>
+			  	<td class="resetErrorMessage" align="center"> <?php echo $this->message; ?> </td>
+			  </tr>	
+			</table>
+            <?php
+		}
+        else
+		{
+			header("Refresh: 5; URL=/index/index");
+			?>
+            <table border="0" align="center">
+              <tr>
+                <td align="center"><img src="/media/images/<?php echo $this->imageIcon; ?>"></td>
+              </tr>
+              <tr>
+                <td class="resetMessage" align="center"> <?php echo $this->message; ?> </td>
+              </tr>
+            </table>
+            <?php
+		}
+		?>		
+
+<?php include "media/header_footer_general/footer.phtml"; ?>
+ 
+		    

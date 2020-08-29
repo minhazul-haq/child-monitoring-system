@@ -1,0 +1,96 @@
+<?php include "media/header_footer_user/header.phtml"; ?>
+		  
+	<tr>
+ 	 <td>
+    	
+        <?php 
+			session_start();
+			
+			if (!isset($_SESSION['child_id']))
+			{	
+			?>
+				<tr>
+                    <td colspan="2" align="center" height="20" class="locationSelectChildMessage">
+                    	<br>
+                        	You must <a href="/user/home">select a child</a> first!	
+                    	<br>
+                    </td>
+                </tr>
+			<?php
+            }
+			else if (count($this->paginator)==0)
+			{
+			?>
+            	<tr>
+                    <td colspan="2" align="center" height="20" class="locationNoDataMessage">
+                    	<br>
+                        	No data to show!	
+                    	<br>
+                    </td>
+                </tr>
+            <?php		
+			}			
+			else if (count($this->paginator)>0)
+			{
+			?>
+				<p class="userTableHeader" align="center">Location tracker :: <?php echo $_SESSION['child_name']; ?></p>
+				
+				<div align="center" id="map_canvas" class="mapStyle" style="width: 600px; height: 300px; border-style:solid; border-color:#000000;" border="3" ></div>
+				<br>
+				
+                <!-- location data table here -->
+                
+                <table border="0" align="center" cellpadding="3" cellspacing="0" class="locationTableData">
+                  <tr bgcolor="#05DCF3">
+                    <td width="40">Sr.</td>
+                    <td width="130">Longitude</td>
+                    <td width="130">Latitude</td>
+                    <td width="200">Time</td>
+					<td width="50"></td>
+                  </tr>
+                  
+                  <?php 
+                  
+                  $serial=1;
+                  $color = array('#B5B5A6','#E1E1E1');
+                    
+                  foreach($this->paginator as $lData)
+                  {
+                  ?>
+                    
+                    <tr bgcolor="<?php echo $color[$serial%2]; ?>">
+                        <td>
+                        <?php echo $serial++."."; ?> 
+                        </td>
+                        <td> 
+                        <?php echo $lData['longitude']; ?> 
+                        </td>
+                        <td> 
+                        <?php echo $lData['latitude']; ?> 
+                        </td>
+                        <td> 
+                        <?php echo $lData['formattedTime']; ?> 
+                        </td>
+						<td> 
+                        <button align="center" onclick="setMapLocation(<?php echo $lData['latitude']; ?>,<?php echo $lData['longitude']; ?>,18)">Show</button>
+                        </td>
+                    </tr>
+                  
+                  <?php
+                  }
+                  
+                  ?>
+                  
+                </table>
+                
+                <!-- location data table ended -->
+				
+				<?php
+				echo $this->paginationControl($this->paginator,'Jumping','user/locationpaginationcontrol.phtml');
+          	}
+			?>
+	  </td>
+    </tr>    
+        	  
+<?php include "media/header_footer_user/footer.phtml"; ?>
+		    

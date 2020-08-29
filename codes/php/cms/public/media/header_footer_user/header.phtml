@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script type="text/javascript" src="/media/script.js"></script>
+    <link rel="stylesheet" href="/media/style.css" type="text/css" media="screen" />
+	<?php echo $this->headTitle($this->title); ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyAgfa6zdfRpP123xbjczKdAxhhaQmJb0_s&sensor=true"type="text/javascript"></script>
+</head>
+
+<?php require('media/functionLibrary.php'); ?>
+
+<body onLoad="setMapLocation(<?php echo $this->locationData['latitude']; ?>,<?php echo $this->locationData['longitude']; ?>,18)" onUnload="GUnload()">
+  <table align="center" cellpadding="0" cellspacing="0" bordercolor="#333333" class="roundedTable">
+    <tr>
+      <td>
+	    <table border="0" align="center">
+          <tr>
+            <th colspan="2"scope="row"><img src="/media/images/header.png"></th>
+          </tr>
+          <tr>
+		  	<td>
+            
+          	   <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td colspan="3"><img src="/media/images/1.png"></td>
+              	  </tr>
+                  <tr>
+                    <td width="20" background="/media/images/2.png">&nbsp;</td>
+                    <td bgcolor="#FFFFFF">  
+                    	<table width="820" border="0" align="center">
+                          <tr>
+                            <td colspan="2" align="center" height="40">
+                                <table border="0" class="userMenu" align="center">
+                                  <tr>
+                                    <td width="150" align="center" class="<?php if ($this->isHomePage) echo 'userHomeSelectedMenu'; ?>"> <a href="/user/home" >Home</a> </td>
+                                    <td width="150" align="center" class="<?php if ($this->isBlockingPage) echo 'userBlockingSelectedMenu'; ?>"> <a href="/user/blocking">Call blocking</a> </td>
+                                    <td width="150" align="center" class="<?php if ($this->isChildPage) echo 'userChildSelectedMenu'; ?>"> <a href="/user/add-child">Add a child</a> </td>
+                                    <td width="150" align="center" class="<?php if ($this->isEditPage) echo 'userEditSelectedMenu'; ?>"> <a href="/user/edit-account">Edit account</a> </td>
+                                    <td width="150" align="center"> <a href="/user/logout">Logout</a> </td>
+                                  </tr>
+                                </table>
+                                <hr>
+                            </td>
+                          </tr>

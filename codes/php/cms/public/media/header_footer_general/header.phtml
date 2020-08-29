@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script type="text/javascript" src="/media/script.js"></script>
+    <link rel="stylesheet" href="/media/style.css" type="text/css" media="screen" />
+	<?php echo $this->headTitle($this->title); ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<?php require_once('media/functionLibrary.php'); ?>
+
+<body onLoad="<?php if ($this->frontPage) echo "preLoadImages()"; ?>">
+  <table border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#333333">
+    <tr>
+      <td>
+	    <table border="0" align="center">
+          <tr height="150">
+            <th colspan="2"scope="row"><img src="/media/images/header.png"></th>
+          </tr>
+          <tr>
+            <th height="22" valign="top"> <?php createGeneralMenu(); ?> </th>
+          </tr>
+          <tr>
+		  	<td>
+            	
+                <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td colspan="3"><img src="/media/images/1.png"></td>
+              	  </tr>
+                  <tr>
+                    <td width="20" background="/media/images/2.png">&nbsp;</td>
+                    <td bgcolor="#FFFFFF">                

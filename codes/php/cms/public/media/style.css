@@ -1,0 +1,601 @@
+
+/*required for cms*/
+body 
+{
+	background-image: url(images/background.jpg);
+}
+
+/* unvisited link */
+a:link 
+{	
+	color:#FF3300;
+	text-decoration:none;
+}   
+
+/* visited link */
+a:visited 
+{
+	color:#FF3300;
+	text-decoration:none;
+} 
+
+/* mouse over link */
+a:hover 
+{
+	color::#FF3300;
+	text-decoration:underline;
+}   
+
+/* selected link */
+a:active 
+{
+	color:#FF3300;
+	text-decoration:none;
+} 
+
+/* css for menu style */
+#menu 
+{
+	position: absolute;
+	margin: 0 auto;
+	width: 896px;
+}
+
+#menu *  
+{ 
+	padding:0px; 
+	margin: 0px; 
+	font: 1em arial; 
+}
+
+/* menu normal */
+#menu a 
+{ 
+	color:#FFFFFF;
+	background-color:#484848;
+	display: block; 
+	border: 1px solid #666666;  
+	text-decoration: none; 
+	padding: 2px 2px; 
+}
+
+/* when mouseOver an item */
+#menu li a:hover 
+{ 
+	background-color:#999999;
+}
+
+/* menu item, menu item->item normal */
+#menu ul li, #menu ul li ul li  
+{ 
+	width: 179px; 
+	list-style-type:none; 
+	float: left; 
+}
+
+/* menu item mouseOver,menu item->item mouseOver */
+#menu ul li ul, #menu:hover ul li ul
+{
+	display:none;
+	list-style-type:none; 
+}
+
+/* menu item mouseOver */
+#menu:hover ul li:hover ul
+{
+	display:block; 
+}
+
+
+/* index.phtml */
+.indexImageDescription 
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 17px;
+	color:#6666CC;
+}
+
+.indexLoginForm
+{
+	border-radius: 10px;
+	border:2px solid #333;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+.indexErrorMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 12px;
+	color:#F60;
+}
+
+.indexForgotPassword 
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 12px;
+	color:#003366;
+}
+
+.indexForgotPasswordLink 
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 13px;
+}
+
+.indexFeatures 
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+/* forgot.phtml */
+.forgotFormDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+.forgotErrorMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#F11;
+}
+
+.forgotMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* register.phtml */
+.registerFormDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+.registerErrorMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#F11;
+}
+
+.registerMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* activate.phtml */
+.activateMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+/* reset.phtml */
+.resetFormDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+.resetErrorMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#F11;
+}
+
+.resetMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* download.phtml */
+.downloadDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* feedback.phtml */
+.feedbackFormDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+.feedbackDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+.feedbackMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 16px;
+	color:#003366;
+}
+
+/* about.phtml */
+.aboutDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+.aboutImageDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 14px;
+	color:#003366;
+}
+
+/* error.phtml */
+.errorDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* home.phtml */
+.userMenu
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 16px;
+}
+
+.userHomeSelectedMenu
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 16px;
+	text-decoration:underline;
+	color:#FF3300;
+}
+
+.userTableHeader
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 18px;
+	color:#003366;
+}
+
+.userTableData
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+.userBlockingSelectedMenu
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 16px;
+	text-decoration:underline;
+	color:#FF3300;
+}
+
+.userChildSelectedMenu
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 16px;
+	text-decoration:underline;
+	color:#FF3300;
+}
+
+.userEditSelectedMenu
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:700;
+	font-size: 16px;
+	text-decoration:underline;
+	color:#FF3300;
+}
+
+.homeDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+.homeMenuMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+.homeSelectChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 15px;
+	color:#F60;
+}
+
+.homeNoDataMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 14px;
+	color:#F60;
+}
+
+/* add-child.phtml */
+.addChildFormDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+.addChildErrorMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#F11;
+}
+
+.addChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* edit-account.phtml */
+.editAccountFormDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+.editAccountErrorMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#F11;
+}
+
+.editAccountMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* location-tracker.phtml */
+.locationTrackerChildDescription
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+.locationTrackerForm
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+.locationTrackerMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 17px;
+	color:#003366;
+}
+
+/* location.phtml */
+.locationSelectChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 15px;
+	color:#F60;
+}
+
+.locationNoDataMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#F60;
+}
+
+.locationTableData
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+/* phonecall.phtml */
+.phonecallSelectChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 15px;
+	color:#F60;
+}
+
+.phonecallNoDataMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#F60;
+}
+
+.phonecallTableData
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+/* message.phtml */
+.messageSelectChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 15px;
+	color:#F60;
+}
+
+.messageNoDataMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#F60;
+}
+
+.messageTableData
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+/* violation.phtml */
+.violationSelectChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 15px;
+	color:#F60;
+}
+
+.violationNoDataMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#F60;
+}
+
+.violationTableData
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+/* blocking.phtml */
+.blockingSelectChildMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	font-size: 15px;
+	color:#F60;
+}
+
+.blockingNoDataMessage
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#F60;
+}
+
+.blockingTableData
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:500;
+	font-size: 15px;
+	color:#003366;
+}
+
+/* footer.phtml */
+.footerCopyRight
+{
+	font-size: 12px;
+	font: "Times New Roman", Times, serif;
+	color:#FFFFFF;
+}
+
+/* this is for removing dd,dt tag from Zend_Form */
+form dl 
+{
+	width:100%;
+}
+
+form dt  
+{ 
+	width:25%;
+	float:left;
+}
+
+form dd  
+{ 
+	width:75%;
+}
+
+

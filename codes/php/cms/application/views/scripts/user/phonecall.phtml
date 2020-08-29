@@ -1,0 +1,90 @@
+<?php include "media/header_footer_user/header.phtml"; ?>
+		  
+	<tr>
+ 	 <td>
+    	
+        <?php 
+			session_start();
+			
+			if (!isset($_SESSION['child_id']))
+			{	
+			?>
+				<tr>
+                    <td colspan="2" align="center" height="20" class="phonecallSelectChildMessage">
+                    	<br>
+                        	You must <a href="/user/home">select a child</a> first!	
+                    	<br>
+                    </td>
+                </tr>
+			<?php
+            }
+			else if (count($this->paginator)==0)
+			{
+			?>
+            	<tr>
+                    <td colspan="2" align="center" height="20" class="phonecallNoDataMessage">
+                    	<br>
+                        	No data to show!	
+                    	<br>
+                    </td>
+                </tr>
+            <?php		
+			}			
+			else if (count($this->paginator)>0)
+			{
+			?>
+				<p class="userTableHeader" align="center">Phonecall tracker :: <?php echo $_SESSION['child_name']; ?></p>
+				
+                <!-- phonecall data table here -->
+                
+                <table border="0" align="center" cellpadding="3" cellspacing="0" class="phonecallTableData">
+                  <tr bgcolor="#05DCF3">
+                    <td width="40">Sr.</td>
+                    <td width="100">Dialed/Received</td>
+                    <td width="110">Mobile no </td>
+                    <td width="200">Time</td>
+                  </tr>
+                  
+                  <?php 
+                  
+                  $serial=1;
+                  $color = array('#B5B5A6','#E1E1E1');
+                    
+                  foreach($this->paginator as $pData)
+                  {
+                  ?>
+                    
+                    <tr bgcolor="<?php echo $color[$serial%2]; ?>">
+                        <td>
+						<?php echo $serial++."."; ?> 
+                        </td>
+                        <td> 
+                        <?php echo $pData['dialed_or_received']; ?> 
+                        </td>
+                        <td> 
+                        <?php echo $pData['mobile_no']; ?> 
+                        </td>
+                        <td> 
+                        <?php echo $pData['formattedTime']; ?> 
+                        </td>
+                    </tr>
+                  
+                  <?php
+                  }
+                  
+                  ?>
+                  
+                </table>
+                
+                <!-- phonecall data table ended -->
+      	
+				<?php
+				echo $this->paginationControl($this->paginator,'Jumping','user/phonecallpaginationcontrol.phtml');
+          	}
+			?>
+ 	  
+	  </td>
+    </tr>    
+        	  
+<?php include "media/header_footer_user/footer.phtml"; ?>
+		    

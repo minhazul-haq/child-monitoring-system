@@ -1,0 +1,63 @@
+<?php
+
+	if ($this->pageCount > 1)
+	{
+	?>	
+    	
+        <table align="center">
+            <tr>
+            	
+                <!-- previous button -->
+                <?php
+                if (isset($this->firstPageInRange) && ($this->firstPageInRange!=$this->first))
+                {
+                ?>
+                    <td>
+                        <a href="message?i=<?php echo $this->firstPageInRange-1; ?>"> Prev </a>
+                    </td>
+                <?php 	
+                }
+                ?>
+                
+                <!-- show all available pages -->
+                <?php
+				
+				foreach($this->pagesInRange as $page)
+                {
+                    if ($page != $this->current)
+                    {
+                    ?>
+                        <td>
+                            <a href="message?i=<?php echo $page; ?>"><?php echo $page; ?></a>
+                        </td>	
+                    <?php
+                    }
+                    else
+                    {
+                    ?>
+                        <td>
+                            <?php echo $this->current; ?>	
+                        </td>	
+                    <?php
+                    }
+                }
+                ?>
+                
+                <!-- next button -->
+                <?php
+                if (isset($this->lastPageInRange) && ($this->lastPageInRange!=$this->last))
+                {
+                ?>
+                    <td>
+                        <a href="message?i=<?php echo $this->lastPageInRange+1; ?>"> Next </a>
+                    </td>
+                <?php		
+                }
+                ?>
+                
+            </tr>
+        </table>			
+    <?php
+	}
+	?>
+                     

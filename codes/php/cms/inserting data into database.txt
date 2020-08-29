@@ -1,0 +1,11 @@
+Inserting a violation data:
+http://localhost/violation/add?id=PARAM1&type=PARAM2&time=PARAM3
+
+Inserting a location data:
+http://localhost/location/add?id=PARAM1&longitude=PARAM2&latitude=PARAM3&time=PARAM4
+
+Inserting a message data:
+http://localhost/message/add?id=PARAM1&mobile=PARAM2&data=PARAM3&time=PARAM4&type=PARAM5
+
+Inserting a phonecall data:
+http://localhost/phonecall/add?id=PARAM1&mobile=PARAM2&time=PARAM3&duration=PARAM4&type=PARAM5

@@ -1,0 +1,84 @@
+<?php include "media/header_footer_user/header.phtml"; ?>
+		  
+	<tr>
+    	<td>
+        
+        <?php 
+			session_start();
+			
+			if (!isset($_SESSION['child_id']))
+			{	
+			?>	
+				<tr>
+                    <td colspan="2" align="center" height="20" class="blockingSelectChildMessage">
+                    	<br>
+                        	You must <a href="/user/home">select a child</a> first!	
+                    	<br>
+                    </td>
+                </tr>
+			<?php
+			}
+			else
+			{
+			
+            	if (count($this->blockingData)>0)
+            	{
+			?>	
+				<p class="userTableHeader" align="center">Phonecall blocking :: <?php echo $_SESSION['child_name']; ?></p>
+				
+			<!-- blocking data table here -->
+
+            <table border="0" align="center" cellpadding="3" cellspacing="0" class="blockingTableData">
+              <tr>
+                <td width="40" bgcolor="#05DCF3">Sr.</td>
+                <td width="120" bgcolor="#05DCF3">Mobile no </td>
+                <td width="50"></td>
+              </tr>
+              
+              <?php 
+              
+              $serial=1;
+              $color = array('#B5B5A6','#E1E1E1');
+              
+              foreach($this->blockingData as $bData)
+              {
+              ?>
+                
+                <tr>
+                    <td bgcolor="<?php echo $color[$serial%2]; ?>">
+                    <?php echo $serial."."; ?> 
+                    </td>
+                    <td bgcolor="<?php echo $color[$serial%2]; ?>"> 
+                    <?php echo $bData['blocked_no']; ?> 
+                    </td>
+                    <td>
+                    <a href="/user/blocking?mobile=<?php echo $bData['blocked_no']; ?>"><img src="/media/images/delete.png"/></a>
+                    </td>
+                </tr>
+                
+              <?php
+			  	$serial++;
+			  }
+			  ?>
+              
+            </table>
+            <?php
+			}
+			?>
+				
+            <table width="290" border="0" align="center" cellpadding="3" cellspacing="0">
+                <tr>
+                    <td>
+                        <?php echo ($this->form); ?>
+                    </td>
+                </tr>
+            </table>
+        	
+            <?php
+			}
+			?>
+            
+        </td>
+    </tr>
+			  
+<?php include "media/header_footer_user/footer.phtml"; ?>	    

@@ -1,0 +1,103 @@
+<?php include "media/header_footer_user/header.phtml"; ?>
+		  
+	<tr>
+ 	 <td>
+    	
+        <?php 
+			session_start();
+			
+			if (!isset($_SESSION['child_id']))
+			{	
+			?>
+				<tr>
+                    <td colspan="2" align="center" height="20" class="violationSelectChildMessage">
+                    	<br>
+                        	You must <a href="/user/home">select a child</a> first!	
+                    	<br>
+                    </td>
+                </tr>
+			<?php
+            }
+			else if (count($this->paginator)==0)
+			{
+			?>
+            	<tr>
+                    <td colspan="2" align="center" height="20" class="violationNoDataMessage">
+                    	<br>
+                        	No data to show!	
+                    	<br>
+                    </td>
+                </tr>
+            <?php		
+			}			
+			else if (count($this->paginator)>0)
+			{
+			?>
+				<p class="userTableHeader" align="center">Vioaltion tracker :: <?php echo $_SESSION['child_name']; ?></p>
+				
+                <!-- violation data table here -->
+                
+                <table border="0" align="center" cellpadding="3" cellspacing="0" class="violationTableData">
+                  <tr bgcolor="#05DCF3">
+                    <td width="40">Sr.</td>
+                    <td width="400">Violation type </td>
+                    <td width="200"">Time </td>
+                  </tr>
+                  
+                  <?php 
+                  
+                  $serial=1;
+                  $color = array('#B5B5A6','#E1E1E1');
+                    
+                  foreach($this->paginator as $vData)
+                  {
+                  ?>
+                    
+                    <tr bgcolor="<?php echo $color[$serial%2]; ?>">
+                        <td>
+                        <?php echo $serial++."."; ?> 
+                        </td>
+                        <td> 
+                        <?php
+                        
+                            $violation_type =  $vData['violation_type'];
+                            
+                            if ($violation_type==1)
+                                echo ("Trial for closing application");
+                            else if ($violation_type==2)
+                                echo ("Trial for calling blocked number");
+                            else if ($violation_type==3)
+                                echo ("Receiving a call from blocked number");
+                            else if ($violation_type==4)
+                                echo ("Trial for sending a message to blocked number");
+                            else if ($violation_type==5)
+                                echo ("Receiving a message from blocked number");
+                            else
+                                echo ("Unknown type violation"); 
+                        
+                        ?> 
+                        </td>
+                        <td> 
+                        <?php echo $vData['formattedTime']; ?> 
+                        </td>
+                    </tr>
+                  
+                  <?php
+                  }
+                  
+                  ?>
+                  
+                </table>
+                
+                <!-- violation data table ended -->
+      	
+				<?php
+				echo $this->paginationControl($this->paginator,'Jumping','user/violationpaginationcontrol.phtml');
+          	}
+			?>
+ 	  
+	  </td>
+    </tr>    
+        	  
+<?php include "media/header_footer_user/footer.phtml"; ?>
+		    
